@@ -36,5 +36,5 @@ almide build src/main.almd -o build/fizz-session-tracker
 
 ## 契約
 
-[fizz-protocol](https://github.com/Aid-On/fizz-protocol) の `memory` モジュール
+[fizz-protocol](https://github.com/aiviecast/fizz-protocol) の `memory` モジュール
 (`MemorySession` / `SessionParticipation` とその Codec)に依存。
