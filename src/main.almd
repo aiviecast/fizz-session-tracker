@@ -23,7 +23,7 @@ import result
 import list
 import string
 
-local fn field(v: Value, k: String) -> Value = value.field(v, k) ?? value.null()
+local fn field(v: Value, k: String) -> Value = value.get(v, k) ?? value.null()
 local fn fstr(v: Value, k: String) -> String = result.unwrap_or(value.as_string(field(v, k)), "")
 local fn fint(v: Value, k: String) -> Int = result.unwrap_or(value.as_int(field(v, k)), 0)
 local fn fopt_str(v: Value, k: String) -> Option[String] = result.to_option(value.as_string(field(v, k)))
@@ -32,7 +32,7 @@ effect fn main() -> Unit = {
   var tracker = st.new_tracker()
   var open = true
   while open {
-    let line = io.read_line()
+    let line = io.read_line() ?? ""
     if string.trim(line) == "" then {
       open = false
     } else {
